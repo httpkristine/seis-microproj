@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seis Forms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 3px;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="bg-gray-100 w-48 flex flex-col pt-4 pb-6 px-4 select-none text-black">
+      <h1 class="font-serif font-bold text-lg mb-6">Seis</h1>
+      <nav class="flex flex-col space-y-3 text-xs font-semibold">
+        <a class="flex items-center space-x-2" href="dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a class="flex items-center space-x-2" href="user-profile.html"><i class="fas fa-user"></i><span>User Profile</span></a>
+        <a class="flex items-center space-x-2" href="table-list.html"><i class="fas fa-table"></i><span>Table List</span></a>
+        <a class="flex items-center space-x-2" href="calendar.html"><i class="fas fa-calendar"></i><span>Calendar</span></a>
+        <a class="flex items-center space-x-2 text-blue-700" href="forms.html"><i class="fas fa-edit"></i><span>Forms</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <h2 class="text-lg font-bold mb-4">Forms</h2>
+      <form class="border border-gray-200 rounded-lg p-6 space-y-4 bg-white text-black shadow-md max-w-2xl">
+        <div>
+          <label for="name" class="block text-xs font-normal mb-1">Name</label>
+          <input id="name" type="text" placeholder="Enter your name" class="w-full border border-gray-300 rounded px-3 py-2 text-xs placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+        </div>
+        <div>
+          <label for="surname" class="block text-xs font-normal mb-1">Surname</label>
+          <input id="surname" type="text" placeholder="Enter your surname" class="w-full border border-gray-300 rounded px-3 py-2 text-xs placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+        </div>
+        <div>
+          <label for="email" class="block text-xs font-normal mb-1">Email</label>
+          <input id="email" type="email" placeholder="Enter your email" class="w-full border border-gray-300 rounded px-3 py-2 text-xs placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+        </div>
+        <div>
+          <label for="message" class="block text-xs font-normal mb-1">Message</label>
+          <textarea id="message" rows="4" placeholder="Enter your message" class="w-full border border-gray-300 rounded px-3 py-2 text-xs placeholder-gray-400 resize-y focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-800 hover:bg-blue-900 text-white text-xs rounded-md py-2">Submit</button>
+      </form>
+    </main>
+  </div>
+</body>
+
+</html>

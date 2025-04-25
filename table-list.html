@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Table List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 3px;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="bg-gray-100 w-48 flex flex-col pt-4 pb-6 px-4 text-black">
+      <h1 class="font-serif font-bold text-lg mb-6">Seis</h1>
+      <nav class="flex flex-col space-y-3 text-xs font-semibold">
+        <a class="flex items-center space-x-2" href="./dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a class="flex items-center space-x-2" href="./user-profile.html"><i class="fas fa-user"></i><span>User Profile</span></a>
+        <a class="flex items-center space-x-2 text-blue-700" href="./table-list.html"><i class="fas fa-table"></i><span>Table List</span></a>
+        <a class="flex items-center space-x-2" href="./calendar.html"><i class="fas fa-calendar"></i><span>Calendar</span></a>
+        <a class="flex items-center space-x-2" href="./forms.html"><i class="fas fa-edit"></i><span>Forms</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="font-bold text-lg">Table List</h2>
+        <form class="relative max-w-xs w-full" onsubmit="handleSearch(event)">
+          <input id="searchInput" type="search" placeholder="Search records..."
+            class="w-full border border-gray-200 rounded px-3 py-1.5 text-xs text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-600" />
+          <button type="submit" aria-label="Search"
+            class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <i class="fas fa-search text-xs"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Table Cards -->
+      <section>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-6xl mx-auto text-xs">
+          <div class="bg-white text-black rounded p-4 shadow">
+            <div class="font-semibold text-gray-800 mb-2">ID</div>
+            <p class="font-bold">1234</p>
+            <p class="font-bold">1345</p>
+            <p class="font-bold">3689</p>
+          </div>
+          <div class="bg-white text-black rounded p-4 shadow">
+            <div class="font-semibold text-gray-800 mb-2">Name</div>
+            <p class="font-bold">Arman Salon</p>
+            <p class="font-bold">Kara Mia</p>
+            <p class="font-bold">Diwata</p>
+          </div>
+          <div class="bg-white text-black rounded p-4 shadow">
+            <div class="font-semibold text-gray-800 mb-2">Country</div>
+            <p class="font-bold">USA</p>
+            <p class="font-bold">Canada</p>
+            <p class="font-bold">Japan</p>
+          </div>
+          <div class="bg-white text-black rounded p-4 shadow">
+            <div class="font-semibold text-gray-800 mb-2">City</div>
+            <p class="font-bold">New York</p>
+            <p class="font-bold">Toronto</p>
+            <p class="font-bold">Tokyo</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function handleSearch(event) {
+      event.preventDefault();
+      const query = document.getElementById("searchInput").value.trim();
+      if (query) {
+        alert(`Searching for: ${query}`);
+      }
+    }
+  </script>
+</body>
+
+</html>

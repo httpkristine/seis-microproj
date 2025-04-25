@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seis Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 3px;
+    }
+    body {
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="bg-gray-100 w-48 flex flex-col pt-4 pb-6 px-4 text-black">
+      <h1 class="font-serif font-bold text-lg mb-6">Seis</h1>
+      <nav class="flex flex-col space-y-3 text-xs font-semibold">
+        <a class="flex items-center space-x-2 text-blue-700" href="./dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a class="flex items-center space-x-2" href="./user-profile.html"><i class="fas fa-user"></i><span>User Profile</span></a>
+        <a class="flex items-center space-x-2" href="./table-list.html"><i class="fas fa-table"></i><span>Table List</span></a>
+        <a class="flex items-center space-x-2" href="./calendar.html"><i class="fas fa-calendar"></i><span>Calendar</span></a>
+        <a class="flex items-center space-x-2" href="./forms.html"><i class="fas fa-edit"></i><span>Forms</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 p-6">
+      <h2 class="text-lg font-bold mb-4">Dashboard</h2>
+
+      <!-- Dashboard cards -->
+      <div class="flex flex-wrap gap-4 mb-8 max-w-4xl">
+        <div class="flex-1 min-w-[120px] max-w-[180px] border border-gray-200 rounded p-3 bg-white text-black">
+          <p class="text-xs text-gray-400 mb-1">Storage</p>
+          <p class="font-bold text-base">50 GB</p>
+        </div>
+        <div class="flex-1 min-w-[120px] max-w-[180px] border border-gray-200 rounded p-3 bg-white text-black">
+          <p class="text-xs text-gray-400 mb-1">Revenue</p>
+          <p class="font-bold text-base">$10,000</p>
+        </div>
+        <div class="flex-1 min-w-[120px] max-w-[100px] border border-gray-200 rounded p-3 bg-white text-black">
+          <p class="text-xs text-gray-400 mb-1">Fixed Issues</p>
+          <p class="font-bold text-base">3</p>
+        </div>
+        <div class="flex-1 min-w-[120px] max-w-[100px] border border-gray-200 rounded p-3 bg-white text-black">
+          <p class="text-xs text-gray-400 mb-1">Followers</p>
+          <p class="font-bold text-base">500</p>
+        </div>
+      </div>
+
+      <!-- Performance Charts -->
+      <h3 class="font-bold text-center mb-6 text-base max-w-4xl mx-auto">Performance Charts</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto py-6">
+        <div class="bg-white rounded-2xl p-4 shadow text-black">
+          <h3 class="text-sm font-bold mb-2">Daily Sales</h3>
+          <canvas id="dailySalesChart"></canvas>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow text-black">
+          <h3 class="text-sm font-bold mb-2">Email Subscriptions</h3>
+          <canvas id="emailChart"></canvas>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow text-black">
+          <h3 class="text-sm font-bold mb-2">Completed Tasks</h3>
+          <canvas id="taskChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Employee's Salary heading -->
+      <h3 class="font-bold text-center mb-8 text-base max-w-4xl mx-auto">Employee's Salary</h3>
+      <div class="flex justify-center gap-12 max-w-4xl mx-auto flex-wrap sm:flex-nowrap">
+        <!-- Repeat this block for each employee -->
+        <!-- employee card example omitted here for brevity; yours are fine! -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Chart JS -->
+  <script>
+    new Chart(document.getElementById("dailySalesChart"), {
+      type: 'line',
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [{
+          label: "Sales",
+          data: [12, 19, 3, 5, 2, 3, 7],
+          borderColor: "#1e3a8a",
+          backgroundColor: "rgba(30, 58, 138, 0.2)",
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(document.getElementById("emailChart"), {
+      type: 'bar',
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [{
+          label: "Subscriptions",
+          data: [120, 190, 300, 500, 200, 300],
+          backgroundColor: "#0f172a"
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(document.getElementById("taskChart"), {
+      type: 'line',
+      data: {
+        labels: ["Wk1", "Wk2", "Wk3", "Wk4"],
+        datasets: [{
+          label: "Tasks",
+          data: [4, 9, 7, 10],
+          borderColor: "#0f172a",
+          backgroundColor: "rgba(15, 23, 42, 0.2)",
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+  </script>
+</body>
+
+</html>
